@@ -1,0 +1,21 @@
+version: "3.7"
+services:
+    
+    # This redis is setup without auth
+    # this is just for local testing
+    portfolio-redis:
+        image: redis:latest
+        ports:
+            - 6379:6379
+        container_name: portfolio-redis
+
+    portfolio-backend:
+        build: backend
+        image: portfolio-backend:latest
+        ports:
+            - 8000:8000
+        volumes:
+            - .:/backend
+        depends_on:
+            - portfolio-redis
+        container_name: portfolio-backend
