@@ -15,7 +15,20 @@ services:
         ports:
             - 8000:8000
         volumes:
-            - .:/backend
+            - ./backend:/backend
         depends_on:
             - portfolio-redis
         container_name: portfolio-backend
+
+    portfolio-frontend:
+        build: frontend
+        image: portfolio-frontend:latest
+        ports:
+            - 3000:3000
+        volumes:
+            - ./frontend:/frontend
+        environment:
+            HOST: 0.0.0.0
+        depends_on:
+            - portfolio-backend
+        container_name: portfolio-frontend
