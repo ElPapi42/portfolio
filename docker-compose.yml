@@ -18,7 +18,7 @@ services:
         ports:
             - 5432:5432
         volumes:
-            - ./persistence/postgres:/data/postgres
+            - ./persistence/postgres:/var/lib/postgresql/data
         container_name: portfolio-postgres
 
     # The django API
