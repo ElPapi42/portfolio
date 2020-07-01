@@ -4,3 +4,6 @@
 [submodule "backend"]
 	path = backend
 	url = https://github.com/ElPapi42/portfolio-backend
+[submodule "strapi"]
+	path = strapi
+	url = https://github.com/ElPapi42/portfolio-strapi
