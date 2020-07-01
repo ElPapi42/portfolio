@@ -35,22 +35,16 @@ services:
         container_name: portfolio-backend
 
     # Strapi instance for local dev
-    #portfolio-strapi:
-    #    image: strapi/strapi:latest
-    #    environment:
-    #        DATABASE_CLIENT: postgres
-    #        DATABASE_NAME: portfolio
-    #        DATABASE_HOST: portfolio-postgres
-    #        DATABASE_PORT: 5432
-    #        DATABASE_USERNAME: postgres
-    #        DATABASE_PASSWORD: root
-    #    ports:
-    #        - 1337:1337
-    #    volumes:
-    #        - ./persistence/strapi:/srv/app
-    #    depends_on:
-    #        - portfolio-postgres
-    #    container_name: portfolio-strapi
+    portfolio-strapi:
+        build: strapi
+        image: portfolio-strapi:latest
+        ports:
+            - 1337:1337
+        volumes:
+            - ./strapi:/strapi
+        depends_on:
+            - portfolio-postgres
+        container_name: portfolio-strapi
 
     portfolio-frontend:
         build: frontend
@@ -63,5 +57,5 @@ services:
             HOST: 0.0.0.0
         depends_on:
             - portfolio-backend
-            #- portfolio-strapi
+            - portfolio-strapi
         container_name: portfolio-frontend
