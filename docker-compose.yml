@@ -46,16 +46,16 @@ services:
             - portfolio-postgres
         container_name: portfolio-strapi
 
-    portfolio-frontend:
-        build: frontend
-        image: portfolio-frontend:latest
-        ports:
-            - 3001:3000
-        volumes:
-            - ./frontend:/frontend
-        environment:
-            HOST: 0.0.0.0
-        depends_on:
-            - portfolio-backend
-            - portfolio-strapi
-        container_name: portfolio-frontend
+    #portfolio-frontend:
+    #    build: frontend
+    #    image: portfolio-frontend:latest
+    #    ports:
+    #        - 3001:3000
+    #    volumes:
+    #        - ./frontend:/frontend
+    #    environment:
+    #        HOST: 0.0.0.0
+    #    depends_on:
+    #        - portfolio-backend
+    #        - portfolio-strapi
+    #    container_name: portfolio-frontend
